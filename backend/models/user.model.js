@@ -38,7 +38,6 @@ const userSchema = new mongoose.Schema({
     boards:[boardSchema],
 })
 
-const User = mongoose.model('User', userSchema);
 
 
 userSchema.pre("save", async function (next) {
@@ -46,8 +45,12 @@ userSchema.pre("save", async function (next) {
     this.password = await bcrypt.hash(this.password, 10);
   });
   
-  userSchema.methods.comparePassword = function (candidatePassword) {
-    return bcrypt.compare(candidatePassword, this.password);
+userSchema.methods.comparePassword = function (candidatePassword) {
+  return bcrypt.compare(candidatePassword, this.password);
   };
+
+const User = mongoose.model('User', userSchema);
+
+  
 
   module.exports = User;
