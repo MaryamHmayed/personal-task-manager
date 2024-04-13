@@ -1,6 +1,24 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
+const taskSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  description: { type: String },
+  attachments: [String],
+  tags: [String]
+});
+
+
+const columnSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  tasks: [taskSchema] 
+});
+
+const boardSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  columns: [columnSchema] 
+});
+
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -10,13 +28,14 @@ const userSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: "email is required",
+        required: "Email is required",
         unique: true,
       },
     password: {
       type: String,
       required: "Password is required",
-    }
+    },
+    boards:[boardSchema],
 })
 
 const User = mongoose.model('User', userSchema);
