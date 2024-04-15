@@ -1,27 +1,25 @@
 const User = require("../models/user.model");
 
-
 const createBoard = async (req, res) => {
     try {
         const user = req.user;
         const { title } = req.body;
-        
-        const existingBoard = user.boards.find(board => board.title === title);
+        const existingBoard = user.boards.find(board => board.title.toLowerCase() === title.toLowerCase());
         if (existingBoard) {
-        return res.status(400).json({ error: 'Board with the same title already exists for this user' });
-    }
+            return res.status(400).json({ error: 'Board with the same title already exists for this user' });
+        }
 
-      const newBoard = { title, columns: [] }; 
-      user.boards.push(newBoard);
-      await user.save();
-      return res.status(201).json({ message: 'Board created successfully', board: newBoard });
+        const newBoard = { title, columns: [] }; 
+        user.boards.push(newBoard);
+        await user.save();
+      
+        return res.status(201).json({ message: 'Board created successfully', board: newBoard });
 
     } catch (error) {
-      console.error('Error creating board:', error);
-      return res.status(500).json({ error: 'Internal server error' });
+        console.error('Error creating board:', error);
+        return res.status(500).json({ error: 'Internal server error' });
     }
-  };
-
+};
 
 const getAllBoards = async (req, res)=>{
     try {
