@@ -1,5 +1,6 @@
 const User = require("../models/user.model");
 
+
 const createBoard = async (req, res) => {
     try {
         const user = req.user;
@@ -32,17 +33,17 @@ const getAllBoards = async (req, res)=>{
 
 
 
-const getBoard = async (req, res)=>{
-    const { id } = req.params;
-  try {
-    const board = req.user?.boards?.find((board) => board._id === id);
-    if (!board) return res.status(404).send("Board not found");
-    return res.status(200).json(board);
-  } catch (error) {
-    console.log(error);
-    return res.status(500).send("Internal server error");
-  }
-};
+// const getBoard = async (req, res)=>{
+//     const { id } = req.params;
+//   try {
+//     const board = req.user?.boards?.find((board) => board._id === id);
+//     if (!board) return res.status(404).send("Board not found");
+//     return res.status(200).json(board);
+//   } catch (error) {
+//     console.log(error);
+//     return res.status(500).send("Internal server error");
+//   }
+// };
 
 
 const deleteBoard = async (req, res) => {
@@ -64,4 +65,8 @@ const deleteBoard = async (req, res) => {
 
 
   
-module.exports={createBoard, getAllBoards, getBoard, deleteBoard};
+module.exports={
+  createBoard,
+  getAllBoards,
+  deleteBoard
+};

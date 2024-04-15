@@ -11,6 +11,9 @@ app.use("/auth", authRoutes);
 const boardRoutes = require("./routes/board.routes");
 app.use("/board",boardRoutes);
 
+const columnRoutes = require("./routes/column.routes");
+app.use("/column",columnRoutes);
+
 
 app.listen(PORT, (err) => {
     if (err) throw new Error(err);
