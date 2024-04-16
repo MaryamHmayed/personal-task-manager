@@ -15,6 +15,11 @@ const columnRoutes = require("./routes/column.routes");
 app.use("/column",columnRoutes);
 
 
+
+
+// var cors = require('cors');
+// app.use(cors())
+
 app.listen(PORT, (err) => {
     if (err) throw new Error(err);
     console.log(`Server is listining on port ${PORT}`);

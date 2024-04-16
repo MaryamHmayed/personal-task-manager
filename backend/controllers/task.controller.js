@@ -28,8 +28,8 @@ const createTask = async (req, res)=>{
         return res.status(201).json({ message: 'Task created successfully', task: newTask });
      
     } catch (error) {
-    console.error('Error creating task:', error);
-      return res.status(500).json({ error: 'Internal server error' });
+        console.error('Error creating task:', error);
+        return res.status(500).json({ error: 'Internal server error' });
     }
 }
 
