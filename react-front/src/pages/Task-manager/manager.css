@@ -1,0 +1,11 @@
+.page-title{
+    color:rgb(241, 235, 235);
+    padding: 30px;
+    text-align: center;
+}
+.task-manager{
+  background-color: #7227D5;
+  font-family:  sans-serif;
+  height: 100vh;
+  width: 100vw;
+}

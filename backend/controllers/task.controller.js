@@ -34,6 +34,30 @@ const createTask = async (req, res)=>{
 }
 
 
+const getTasks = async (req,res)=>{
+    try {
+        const user = req.user;
+        const { board_id, column_id } = req.params;
+        const board = user.boards.find((board) => board._id.toString() === board_id);
+        if (!board) {
+          return res.status(404).json({ error: "Board not found" });
+        }
+    
+        const column = board.columns.find((column) => column._id.toString() === column_id);
+        if (!column) {
+          return res.status(404).json({ error: "Column not found" });
+        }
+    
+        return res.status(200).json({ tasks: column.tasks });
+      } catch (error) {
+        console.error("Error fetching tasks:", error);
+        return res.status(500).json({ error: "Internal server error" });
+      }
+    };
+    
+
+
+
 const deleteTask = async (req, res) => {
     try {
         const user = req.user;

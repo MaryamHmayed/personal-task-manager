@@ -39,7 +39,7 @@ const Register = () => {
     
     
     return  ( 
-        <>
+        <><form>
           <div className="card">
           <div className="image">
             <div className="overlay">
@@ -64,7 +64,7 @@ const Register = () => {
             </div>
             
       </div>
-        
+      </form>
         
         </>
     

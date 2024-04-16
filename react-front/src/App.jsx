@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from "./pages/Login/index";
 import Register from "./pages/Register";
+import TaskManager from "./pages/Task-manager/manager";
 
 
 
@@ -17,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
-
+        <Route path="/task-manager" element={<TaskManager/>}/>
 
 
 
