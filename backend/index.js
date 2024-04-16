@@ -14,7 +14,8 @@ app.use("/board",boardRoutes);
 const columnRoutes = require("./routes/column.routes");
 app.use("/column",columnRoutes);
 
-
+const taskRoutes = require("./routes/task.routes");
+app.use("/task",taskRoutes);
 
 
 // var cors = require('cors');

@@ -1,13 +1,13 @@
 import React from "react";
 
-import "./manager.css";
+import "./board.css";
 
-const TaskManager =()=>{
+const Board =()=>{
     
     return(<> <div className="task-manager">
     <h1 className="page-title">TASK MANAGER</h1>
     
-    
+    <div className=""></div>
     
     
     </div>
@@ -29,4 +29,4 @@ const TaskManager =()=>{
 
 
 
-export default TaskManager;
+export default Board;

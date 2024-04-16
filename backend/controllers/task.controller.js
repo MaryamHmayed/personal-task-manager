@@ -67,7 +67,7 @@ const deleteTask = async (req, res) => {
         if (!board) {
             return res.status(404).json({ error: 'Board not found' });
         }
-
+        
         const column = board.columns.find(column => column._id.toString() === column_id);
         if (!column) {
             return res.status(404).json({ error: 'Column not found' });
@@ -89,4 +89,4 @@ const deleteTask = async (req, res) => {
 };
 
 
-module.exports={createTask,deleteTask}
+module.exports={createTask,deleteTask,getTasks}
