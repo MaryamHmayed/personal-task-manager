@@ -1,6 +1,7 @@
 import React from "react";
 import "./board.css";
-
+import "../User/user"
+import UserComponent from "../User/user";
 
 const Board =()=>{
 
@@ -8,6 +9,7 @@ const Board =()=>{
     
     return(<> <div className="task-manager">
     <h1 className="page-title">TASK MANAGER</h1>
+    <UserComponent/>
     
     <div className="board-container">
         <h3 className="board-title"> Final Project</h3>

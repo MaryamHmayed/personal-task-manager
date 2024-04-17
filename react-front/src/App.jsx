@@ -1,6 +1,8 @@
 import React from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Provider } from 'react-redux';
+import store from './pages/Store/store';
 
 
 import Login from "./pages/Login/index";
@@ -14,6 +16,7 @@ import Board from "./pages/Board/board";
 function App() {
   return (
     <div className="App">
+      <Provider store={store}>
       <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login/>}/>
@@ -24,7 +27,7 @@ function App() {
 
       </Routes>
       </BrowserRouter>
-     
+      </Provider>
     </div>
   );
 }

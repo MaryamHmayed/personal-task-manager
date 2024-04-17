@@ -4,20 +4,32 @@ const userSlice = createSlice({
   initialState: {
     username: "",
     email: "",
+    loading: false,
+    error: null,
   },
   name: "users",
   reducers: {
-    loadUser: (state, action) => {
-      const { payload } = action;
-      return {
-        ...state,
-        email: payload.email,
-        username: payload.username,
-      };
+    
+    setUser: (state, action) => {
+      const { username } = action.payload;
+      state.username = username;
+  
+      state.loading = false;
+      state.error = null;
+    },
+  
+    setLoading: (state) => {
+      state.loading = true;
+      state.error = null;
+    },
+
+    setError: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
     },
   },
 });
 
-export default userSlice.reducer;
+export const { setUser, setLoading, setError } = userSlice.actions;
 
-export const { loadUser } = userSlice.actions;
+export default userSlice.reducer;
