@@ -13,7 +13,6 @@ const userSlice = createSlice({
     setUser: (state, action) => {
       const { username } = action.payload;
       state.username = username;
-  
       state.loading = false;
       state.error = null;
     },
